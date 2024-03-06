@@ -21,8 +21,16 @@ const path = require("path");
     module: {
       rules: [
         {
+          test: /\.(html)$/,
+          use: ["html-loader"],
+        },
+        {
           test: /\.(css)$/,
           use: ["style-loader", "css-loader"],
+        },
+        {
+          test: /\.(png|jpg|gif)$/i,
+          type: 'asset/resource'
         },
       ],
     },

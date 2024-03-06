@@ -1,5 +1,17 @@
 import { parseUrl } from "./utils";
-// TODO #import-html: use ES default imports to import game.html as template
+import template from "../views/game.html";
+
+import back from "../../assets/cards/back.png";
+import card0 from "../../assets/cards/card-0.png";
+import card1 from "../../assets/cards/card-1.png";
+import card2 from "../../assets/cards/card-2.png";
+import card3 from "../../assets/cards/card-3.png";
+import card4 from "../../assets/cards/card-4.png";
+import card5 from "../../assets/cards/card-5.png";
+import card6 from "../../assets/cards/card-6.png";
+import card7 from "../../assets/cards/card-7.png";
+import card8 from "../../assets/cards/card-8.png";
+import card9 from "../../assets/cards/card-9.png";
 
 var CARD_TEMPLATE = ""
   .concat('<main class="card-cmp">')
@@ -30,6 +42,7 @@ export function GameComponent() {
   this._size = parseInt(params.size) || 9;
   this._flippedCard = null;
   this._matchedPairs = 0;
+  this.template = template
 }
 
 
@@ -210,20 +223,19 @@ GameComponent.prototype._flipCard = function _flipCard(card) {
 };
 
 // TODO #card-component: Change images location to /app/components/game/card/assets/***.png
-// TODO #import-assets: use ES default import to import images.
 var CARDS_IMAGE = [
-  "/src/assets/cards/back.png",
-  "/src/assets/cards/card-0.png",
-  "/src/assets/cards/card-1.png",
-  "/src/assets/cards/card-2.png",
-  "/src/assets/cards/card-3.png",
-  "/src/assets/cards/card-4.png",
-  "/src/assets/cards/card-5.png",
-  "/src/assets/cards/card-6.png",
-  "/src/assets/cards/card-7.png",
-  "/src/assets/cards/card-8.png",
-  "/src/assets/cards/card-9.png",
-];
+  back,
+  card0,
+  card1,
+  card2,
+  card3,
+  card4,
+  card5,
+  card6,
+  card7,
+  card8,
+  card9,
+]; 
 
 // TODO #class: use the ES6 class keyword
 // TODO #extends: extends Component
@@ -243,8 +255,7 @@ function CardComponent(id) {
   this._id = id;
 
   this._imageElt = this.getElement().querySelector(".card-wrapper");
-  this._imageElt.querySelector("img.front-face").src =
-    CARDS_IMAGE[this._id + 1];
+  this._imageElt.querySelector("img.front-face").src = CARDS_IMAGE[this._id + 1];
   this._imageElt.querySelector("img.back-face").src = CARDS_IMAGE[0];
 }
 
